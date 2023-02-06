@@ -10,11 +10,9 @@ const Header = () => {
   return ( 
     <>
     { 
-
       loggedInUser ? 
       <UserInfo /> :
-
-        <LogIn />
+      <LogIn />
     }
     </>
   );

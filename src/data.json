@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "lukas",
+      "password": "123",
+      "avatar": "https://i.pravatar.cc/150?img=11"
+    }
+  ]
+}

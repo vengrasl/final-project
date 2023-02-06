@@ -5,6 +5,13 @@
       "username": "lukas",
       "password": "123",
       "avatar": "https://i.pravatar.cc/150?img=11"
+    },
+    {
+      "username": "lukas1",
+      "password": "123123123",
+      "passwordRepeat": "123123123",
+      "avatar": "https://i.pravatar.cc/150?img=11",
+      "id": 1675702740380
     }
   ]
 }

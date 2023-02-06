@@ -51,6 +51,7 @@ const LogIn = () => {
           {
             failedLogIn && <p>Wrong log in info</p>
           }
+          <hr />
         </form>
       </div>
     </>

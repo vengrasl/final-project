@@ -14,11 +14,22 @@ const [questions, setQuestions] = useState(null);
     questionData();
   }, []);
 
+  const addNewQuestion = async (newQuestion) => {
+    const res = await fetch('http://localhost:5000/questions', {
+      method: 'POST',
+      body: JSON.stringify(newQuestion),
+      headers: {'Content-Type': 'application/json'}
+    });
+    const uptatedData = await res.json();
+    setQuestions([...questions, uptatedData]);
+  }
+
   return (
     <QuestionContext.Provider
       value={{
         questions,
-        setQuestions
+        setQuestions,
+        addNewQuestion
       }}
     >
       {children}

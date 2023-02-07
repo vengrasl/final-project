@@ -17,7 +17,7 @@ const Register = () => {
     }
     addNewUser(newUser);
     setLoggedInUser(newUser);
-    navigation('/')
+    navigation('/');
   } 
 
   const validationSchema = Yup.object().shape({

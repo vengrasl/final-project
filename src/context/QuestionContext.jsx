@@ -24,12 +24,20 @@ const [questions, setQuestions] = useState(null);
     setQuestions([...questions, uptatedData]);
   }
 
+  const deleteQuestion = async (id) => {
+    await fetch(`http://localhost:5000/questions/${id}`, {
+      method: 'DELETE'
+    });
+    setQuestions(questions.filter(question => question.id !== id))
+  }
+
   return (
     <QuestionContext.Provider
       value={{
         questions,
         setQuestions,
-        addNewQuestion
+        addNewQuestion,
+        deleteQuestion
       }}
     >
       {children}

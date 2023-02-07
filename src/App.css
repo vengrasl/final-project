@@ -1,0 +1,83 @@
+*,
+* ::after,
+* ::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+  --corp-dark-scholar: #333D51;
+  --corp-yellow-scholar: #D3AC2B;
+  --corp-light-scholar: #CBD0D8;
+  --corp-white-scholar: #F4F3EA;
+}
+#root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header{
+  height: 64px;
+  border-bottom: 2px solid #333D51;
+  background-color: #CBD0D8;
+}
+header h3 {
+  color: black;
+}
+header a {
+  text-decoration: none;
+}
+header a:hover {
+  opacity: 0.9;
+}
+.loginDiv{
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 50px;
+}
+.loginDiv > form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.userInfoDiv{
+  height: 64px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 50px;
+  gap: 20px;
+}
+.userInfoDiv > img {
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #333D51;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  height: 64px;
+  background-color: #CBD0D8;
+  border-top: 2px solid #333D51;
+}
+footer > p {
+  font-size: 18px;
+  text-align: center;
+}
+.loggedIn, .notLoggedIn {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:20px;
+}
+.loggedInLinks, .notLoggedInLinks {
+  display: flex;
+  gap: 15px;
+  padding-left: 50px;
+}

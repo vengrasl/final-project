@@ -10,11 +10,11 @@ const UserInfo = () => {
   }
 
   return ( 
-    <>
+    <div className="userInfoDiv">
       <img src={loggedInUser.avatar} alt="user avatar"/>
       <span>{loggedInUser.username}</span>
       <button onClick={() => LogoutUser()}>LogOut</button>
-    </>
+    </div>
    );
 }
  

@@ -27,32 +27,31 @@ const LogIn = () => {
 
   return ( 
     <>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label>
-            <input 
-              type="text"
-              placeholder="username" 
-              name="username"
-              value={formFields.username}
-              onChange={(e)=>setFormFields({...formFields, username:e.target.value})}
-            />
-          </label>
-          <label>
-            <input 
-              type="password"
-              placeholder="password" 
-              name="password"
-              value={formFields.password}
-              onChange={(e)=>setFormFields({...formFields, password:e.target.value})}
-            />
-          </label>
-          <input type="submit" value="Log In" />
+      <div className="loginDiv">
+          <form onSubmit={handleSubmit}>
+            <label>
+              <input 
+                type="text"
+                placeholder="username" 
+                name="username"
+                value={formFields.username}
+                onChange={(e)=>setFormFields({...formFields, username:e.target.value})}
+              />
+            </label>
+            <label>
+              <input 
+                type="password"
+                placeholder="password" 
+                name="password"
+                value={formFields.password}
+                onChange={(e)=>setFormFields({...formFields, password:e.target.value})}
+              />
+            </label>
+            <input type="submit" value="Log In" />
+          </form>
           {
-            failedLogIn && <p>Wrong log in info</p>
+          failedLogIn && <span>Wrong log in info</span>
           }
-          <hr />
-        </form>
       </div>
     </>
    );

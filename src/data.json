@@ -13,5 +13,15 @@
       "avatar": "https://i.pravatar.cc/150?img=11",
       "id": 1675702740380
     }
+  ],
+  "questions": [
+    {
+      "title": "question1",
+      "id": 1
+    },
+    {
+      "title": "question2",
+      "id": 2
+    }
   ]
 }

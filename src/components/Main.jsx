@@ -1,7 +1,8 @@
+import Questions from "./Questions";
 const Main = () => {
   return ( 
     <>
-    Main
+      <Questions />
     </>
    );
 }

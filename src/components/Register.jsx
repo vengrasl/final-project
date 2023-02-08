@@ -12,7 +12,9 @@ const Register = () => {
 
   const handleSubmit = (values) => {
     let newUser = {
-      ...values,
+      username: values.username,
+      password: values.password,
+      avatar: values.avatar,
       id: Date.now(),
     }
     addNewUser(newUser);
@@ -26,7 +28,7 @@ const Register = () => {
       .max(15, 'Username must be 15 characters or less.')
       .required('This field must be filled.')
       .matches(/^[a-zA-Z0-9]+$/, "Username can only contain alphanumeric characters.")
-      .test('unique-username', 'Username already taken, please choose a different one', value => !users.find(user => user.username === value)),
+      .test('unique-username', 'This username already taken.', value => !users.find(user => user.username === value)),
     password: Yup.string()
       .min(8, 'Password must be at least 8 symbols length.')
       .max(20, 'Password must be 20 characters or less.')
@@ -34,8 +36,8 @@ const Register = () => {
     passwordRepeat: Yup.mixed()
       .oneOf([Yup.ref('password'), null], 'Passwords must match.')
       .required('This field must be filled.'),
-    avatar: Yup.string()
-      .required('This field must be filled.')
+    avatar: Yup.string().url()
+      .required('This field must be filled.'),
   });
 
   return ( 
@@ -44,13 +46,11 @@ const Register = () => {
         initialValues={{
           username: '',
           password: '',
-          passwordRepeat: '',
           avatar: ''
         }} 
         validationSchema={validationSchema}
           
         onSubmit= {(values, {resetForm}) => {
-          console.log(values);
           resetForm({values: ''});
           handleSubmit(values);
         }}
@@ -72,7 +72,7 @@ const Register = () => {
                     : null
                 }
               </label>
-              <label>Password (must be atleast 8 symbols):
+              <label>Password (8-20 characters):
                 <Field 
                   type="password"
                   name='password'
@@ -101,7 +101,7 @@ const Register = () => {
                 <label>Avatar:
                   <Field 
                     type="url"
-                    name='aavatar'
+                    name='avatar'
                     value={values.avatar} 
                     onChange={(e)=>setValues({...values, avatar: e.target.value})}
                   />

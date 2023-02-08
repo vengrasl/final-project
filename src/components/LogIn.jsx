@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import UserContext from "../context/UserContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
 
@@ -12,15 +13,16 @@ const LogIn = () => {
 
   const [failedLogIn, setFailedLogIn] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formFields)
     const loggedInUser  = users.find(user => user.username === formFields.username && user.password === formFields.password)
     if (loggedInUser ){
       setLoggedInUser(loggedInUser)
-      console.log('sucess');
+      navigate('/')
     } else {
-      console.log('fail');
       setFailedLogIn(true);
     }
   }
@@ -50,7 +52,7 @@ const LogIn = () => {
             <input type="submit" value="Log In" />
           </form>
           {
-          failedLogIn && <span>Wrong log in info</span>
+          failedLogIn && <span>Invalid username or password</span>
           }
       </div>
     </>

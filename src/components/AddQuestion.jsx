@@ -17,7 +17,10 @@ const AddQuestion = () => {
       ...values,
       userId: loggedInUser.id,
       id: Date.now(),
-      questionPostDate: new Date().toLocaleString()
+      questionPostDate: new Date().toLocaleString(),
+      wasEdited: false,
+      likes: 0,
+      dislikes: 0
     }
     addNewQuestion(newQuestion);
     navigate('/');
@@ -25,9 +28,12 @@ const AddQuestion = () => {
 
   const validationSchema = Yup.object().shape({
     title: Yup.string()
-      .min(5, "title must be 5 characters or more.")
-      .max(100, 'title must be 100 characters or less.')
-      .required('This field must be filled.')
+      .min(5, "Title must be 5 characters or more.")
+      .max(30, 'Title must be 30 characters or less.')
+      .required('This field must be filled.'),
+    question: Yup.string()
+      .min(5, 'Question must be at least 5 characters length.')
+      .required('This field must be filled.'),
   }); 
 
   return ( 
@@ -35,12 +41,12 @@ const AddQuestion = () => {
       <Formik
       initialValues={{
         title: '',
+        question: ''
       }} 
 
       validationSchema={validationSchema}
   
       onSubmit= {(values, {resetForm} )=> {
-        console.log(values);
         resetForm({values: ''})
         handleSubmit(values);
       }}
@@ -49,9 +55,8 @@ const AddQuestion = () => {
       {({ errors, touched, values, setValues }) => (
 
         <Form >
-          <label>Your question:
+          <label>Your question title:
             <Field 
-              type="textarea"
               name='title'
               value={values.title} 
               onChange={(e)=>setValues({...values, title:e.target.value})}
@@ -59,6 +64,19 @@ const AddQuestion = () => {
              {
               errors.title && touched.title ? 
               <span>{errors.title}</span> : null     
+              }
+          </label>
+
+          <label>Your question:
+            <Field
+              as="textarea"
+              name='question'
+              value={values.question} 
+              onChange={(e)=>setValues({...values, question:e.target.value})}
+            />
+             {
+              errors.question && touched.question ? 
+              <span>{errors.question}</span> : null     
               }
           </label>
 

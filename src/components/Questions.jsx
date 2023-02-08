@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const Questions = () => {
 
   const { questions } = useContext(QuestionContext)
-  console.log(questions)
 
   return ( 
     <section className="homeQuestions">

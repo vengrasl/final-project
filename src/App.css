@@ -155,6 +155,7 @@ footer > p {
   min-width: 500px;
   max-width: 500px;
   gap: 10px;
+  background-color: #f0f0ef;
 }
 .questionPostInfo{
   display: flex;
@@ -194,6 +195,50 @@ footer > p {
   display: flex;
   width: 50%;
   justify-content: space-evenly;
+}
+.thumbsDown, .thumbsUp {
+  width: 20px;
+}
+.thumbsDown:hover, .thumbsUp:hover {
+  opacity: 0.9;
+}
+.thumbsDown:active, .thumbsUp:active {
+  opacity: 0.8;
+}
+.likeDislikeDiv {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+.likeDislikeDiv span {
+  font-size: 20px;
+}
+.addQuestionForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+.addQuestionForm > div {
+  display: flex;
+  flex-direction: column;
+}
+.addQuestionContainer {
+  display: flex;
+  flex: 1;
+}
+.questionTitle {
+  width: 290px;
+}
+.questionItself {
+  width: 290px;
+  height: 100px;
+}
+.loginToLike {
+  text-align: right;
+  color: red
 }
 
 @media (max-width: 640px){

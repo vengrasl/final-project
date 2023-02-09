@@ -1,9 +1,15 @@
 import { createContext, useState, useEffect } from "react";
+import UserContext from "../context/UserContext";
+import { useContext } from "react";
 
 const QuestionContext = createContext();
 const QuestionProvider = ({ children }) => {
 
 const [questions, setQuestions] = useState(null);
+
+const { loggedInUser } = useContext(UserContext);
+
+const [showMessageQuestion, setShowMessageQuestion] = useState(false);
 
   useEffect(()=>{
     const questionData = async () => {
@@ -40,26 +46,26 @@ const [questions, setQuestions] = useState(null);
     setQuestions(questions.map(question => question.id.toString() === id ? { ...question, ...updatedQuestion } : question));
   }
 
-  const likeQuestion = async (id) => {
-    const question = questions.find(question => question.id === id);
-    const updatedQuestion = { ...question, likes: question.likes + 1 };
-    await fetch(`http://localhost:5000/questions/${id}`, {
-      method: 'PATCH',
-      body: JSON.stringify(updatedQuestion),
-      headers: { 'Content-Type': 'application/json' }
-    });
-    setQuestions(questions.map(question => question.id === id ? { ...question, likes: question.likes + 1 } : question));
+  const handleLikes = async (id) => {
+    const updatedQuestion= questions.find(question => question.id === id);
+    if(!updatedQuestion.likedBy.includes(loggedInUser.id)) {
+        updatedQuestion.likedBy.push(loggedInUser.id);
+        updatedQuestion.disLikedBy = updatedQuestion.disLikedBy.filter(userId => userId !== loggedInUser.id);
+    } else {
+        updatedQuestion.likedBy = updatedQuestion.likedBy.filter(userId => userId !== loggedInUser.id);
+    }
+    await updateQuestion(id, updatedQuestion);
   }
-
-  const dislikeQuestion = async (id) => {
-    const question = questions.find(question => question.id === id);
-    const updatedQuestion = { ...question, dislikes: question.dislikes - 1 };
-    await fetch(`http://localhost:5000/questions/${id}`, {
-      method: 'PATCH',
-      body: JSON.stringify(updatedQuestion),
-      headers: { 'Content-Type': 'application/json' }
-    });
-    setQuestions(questions.map(question => question.id === id ? { ...question, dislikes: question.dislikes - 1 } : question));
+  
+  const handleDislike = async (id) => {
+    const updatedQuestion= questions.find(question => question.id === id);
+    if(!updatedQuestion.disLikedBy.includes(loggedInUser.id)) {
+        updatedQuestion.disLikedBy.push(loggedInUser.id);
+        updatedQuestion.likedBy = updatedQuestion.likedBy.filter(userId => userId !== loggedInUser.id);
+    } else {
+        updatedQuestion.disLikedBy = updatedQuestion.disLikedBy.filter(userId => userId !== loggedInUser.id);
+    }
+    await updateQuestion(id, updatedQuestion);
   }
 
 
@@ -71,8 +77,10 @@ const [questions, setQuestions] = useState(null);
         addNewQuestion,
         deleteQuestion,
         updateQuestion,
-        likeQuestion,
-        dislikeQuestion
+        handleLikes,
+        handleDislike,
+        showMessageQuestion,
+        setShowMessageQuestion
       }}
     >
       {children}

@@ -53,35 +53,32 @@ const AddQuestion = () => {
     >
           
       {({ errors, touched, values, setValues }) => (
-
-        <Form >
-          <label>Your question title:
-            <Field 
+        <div className="addQuestionContainer">
+          <Form className="addQuestionForm">
+          <div className="form-column">
+            <label>Your question title:</label>
+            <Field
+              className= "questionTitle"
               name='title'
               value={values.title} 
               onChange={(e)=>setValues({...values, title:e.target.value})}
             />
-             {
-              errors.title && touched.title ? 
-              <span>{errors.title}</span> : null     
-              }
-          </label>
-
-          <label>Your question:
+            {errors.title && touched.title ? <span>{errors.title}</span> : null}
+          </div>
+          <div className="form-column">
+            <label>Your question:</label>
             <Field
+              className="questionItself"
               as="textarea"
               name='question'
               value={values.question} 
               onChange={(e)=>setValues({...values, question:e.target.value})}
             />
-             {
-              errors.question && touched.question ? 
-              <span>{errors.question}</span> : null     
-              }
-          </label>
-
+            {errors.question && touched.question ? <span>{errors.question}</span> : null}
+          </div>
           <button className="PostButton" type='submit'>Post question</button>
         </Form>
+      </div>
       )}
     </Formik>  
     </>

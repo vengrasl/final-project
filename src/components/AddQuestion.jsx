@@ -19,8 +19,8 @@ const AddQuestion = () => {
       id: Date.now(),
       questionPostDate: new Date().toLocaleString(),
       wasEdited: false,
-      likes: 0,
-      dislikes: 0
+      likedBy: [],
+      disLikedBy: []
     }
     addNewQuestion(newQuestion);
     navigate('/');

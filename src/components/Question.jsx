@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import thumbsDown from '../images/thumbs-down.png'
 import thumbsUp from '../images/thumbs-up.png'
+import { useLocation } from "react-router-dom";
 
 const Question = ({data}) => {
 
@@ -14,7 +15,8 @@ const Question = ({data}) => {
   const questionOwner = users.find(user => user.id === data.userId);
 
   const QuestionVote = data.likedBy.length - data.disLikedBy.length;
-
+  
+  const location = useLocation();
 
 
   return ( 
@@ -29,7 +31,14 @@ const Question = ({data}) => {
         <p>Question was posted: <span>{data.questionPostDate}</span></p>
       </div>
       <div className="theQuestion">
-        <h1>{data.title}</h1>
+      {location.pathname === `/question/${data.id}` ? 
+      (<h2>{data.title}</h2>) 
+      : 
+      (
+        <Link to={`/questionAnswers/${data.id}`}>
+          <h2>{data.title}</h2>
+        </Link>
+      )}
       </div>
       <div className="question">
         <p>{data.question}</p>

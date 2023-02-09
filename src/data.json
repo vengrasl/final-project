@@ -11,6 +11,12 @@
       "password": "123123123",
       "avatar": "https://i.pravatar.cc/150?img=11",
       "id": 1675702740380
+    },
+    {
+      "username": "newUser",
+      "password": "123123123",
+      "avatar": "https://i.pravatar.cc/150?img=11",
+      "id": 1675927278810
     }
   ],
   "questions": [
@@ -21,12 +27,51 @@
       "id": 1675877434335,
       "questionPostDate": "2/8/2023, 7:30:34 PM",
       "wasEdited": true,
-      "likedBy": [
-        1
-      ],
+      "likedBy": [],
       "disLikedBy": [
-        1675702740380
+        1675702740380,
+        1
       ]
+    },
+    {
+      "title": "new question",
+      "question": "Does it work? looks like it works",
+      "userId": 1675927278810,
+      "id": 1675927294063,
+      "questionPostDate": "2/9/2023, 9:21:34 AM",
+      "wasEdited": true,
+      "likedBy": [],
+      "disLikedBy": []
+    },
+    {
+      "title": "One more question but this tim",
+      "question": "lelele",
+      "userId": 1,
+      "id": 1675927542859,
+      "questionPostDate": "2/9/2023, 9:25:42 AM",
+      "wasEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
+    }
+  ],
+  "answers": [
+    {
+      "answer": "i do not know why the sky is blue",
+      "id": 1,
+      "questionId": 1675877434335,
+      "userId": 1675702740380,
+      "wasEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
+    },
+    {
+      "answer": "why does it work?",
+      "id": 2,
+      "questionId": 1675927294063,
+      "userId": 1675927278810,
+      "wasEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
     }
   ]
 }

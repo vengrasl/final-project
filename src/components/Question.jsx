@@ -30,16 +30,18 @@ const Question = ({data}) => {
         }
         <p>Question was posted: <span>{data.questionPostDate}</span></p>
       </div>
+      
       <div className="theQuestion">
-      {location.pathname === `/question/${data.id}` ? 
-      (<h2>{data.title}</h2>) 
+        {location.pathname === `/question/${data.id}` ?
+        <div className="nonLink">
+          <h2>{data.title}</h2>
+        </div>
       : 
-      (
         <Link to={`/questionAnswers/${data.id}`}>
           <h2>{data.title}</h2>
         </Link>
-      )}
-      </div>
+        }
+        </div>
       <div className="question">
         <p>{data.question}</p>
       </div>

@@ -21,19 +21,6 @@
   ],
   "questions": [
     {
-      "title": "question",
-      "question": "Why is the sky blue???\n",
-      "userId": 1675702740380,
-      "id": 1675877434335,
-      "questionPostDate": "2/8/2023, 7:30:34 PM",
-      "wasEdited": true,
-      "likedBy": [],
-      "disLikedBy": [
-        1675702740380,
-        1
-      ]
-    },
-    {
       "title": "new question",
       "question": "Does it work? looks like it works",
       "userId": 1675927278810,
@@ -56,19 +43,31 @@
   ],
   "answers": [
     {
-      "answer": "i do not know why the sky is blue",
-      "id": 1,
-      "questionId": 1675877434335,
-      "userId": 1675702740380,
+      "answer": "why does it work?",
+      "id": 2,
+      "questionPostDate": "2/9/2023, 15:25:42 AM",
+      "questionId": 1675927294063,
+      "userId": 1675927278810,
       "wasEdited": false,
       "likedBy": [],
       "disLikedBy": []
     },
     {
-      "answer": "why does it work?",
-      "id": 2,
+      "answer": "what matters is, that it works",
+      "userId": 1,
+      "id": 1675963547150,
+      "questionPostDate": "2/9/2023, 7:25:47 PM",
       "questionId": 1675927294063,
-      "userId": 1675927278810,
+      "wasEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
+    },
+    {
+      "answer": "you did not write the question",
+      "userId": 1,
+      "id": 1675963970246,
+      "answerPostDate": "2/9/2023, 7:32:50 PM",
+      "questionId": 1675927542859,
       "wasEdited": false,
       "likedBy": [],
       "disLikedBy": []

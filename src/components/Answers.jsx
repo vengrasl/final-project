@@ -3,24 +3,26 @@ import QuestionContext from "../context/QuestionContext";
 import AnswerContext from '../context/AnswerContext';
 import { useContext } from "react";
 import Question from "./Question";
+import Answer from './Answer';
+import AddAnswer from "./AddAnswer";
+import UserContext from '../context/UserContext';
 
 const Answers = () => {
 
   //question id
   const { id } = useParams();
-  console.log(id)
   
   const { questions } = useContext(QuestionContext);
 
   const { answers } = useContext(AnswerContext);
 
+  const { loggedInUser } = useContext(UserContext)
+
   //pasirinktas klausimas
   const currentQuestion = questions ? questions.filter(question => question.id.toString() === id) : [];
-  console.log(currentQuestion)
 
   //specifinis atsakymas
-  const currentAnswer = answers ? answers.filter(answer => answer.questionId.toString() === id ) : [];
-  console.log(currentAnswer)
+  const currentAnswer = answers ? answers.filter(answer => answer.questionId && answer.questionId.toString() === id) : [];
 
   return ( 
     <section className='answers'>
@@ -28,10 +30,10 @@ const Answers = () => {
 {
   currentQuestion &&
   currentQuestion.map(question => (
-
-      <Question key={question.id}
-      data={question} />
-
+    <Question 
+      key={question.id}
+      data={question} 
+    />
   ))
 }
 
@@ -39,11 +41,12 @@ const Answers = () => {
     {
       currentAnswer ?
       currentAnswer.length > 0 ?
-      currentAnswer.map(answer => (
-        <div key={answer.id}>
-          <p>{answer.answer}</p>
-        </div>
-      ))
+      currentAnswer.map(answer => 
+        <Answer
+        key={answer.id}
+        data={answer}
+        />
+      )
       :
       <div className="noPosts">
         <p>There are no answers to this question yet.</p>
@@ -51,6 +54,13 @@ const Answers = () => {
       :
       <img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" alt="loading"/>
     }
+
+    {
+      loggedInUser &&
+      <AddAnswer
+       id={id}/>
+    }
+       
     </section>
    );
 }

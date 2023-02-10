@@ -1,32 +1,70 @@
 import UserContext from "../context/UserContext";
 import { useContext } from "react";
+import AnswerContext from "../context/AnswerContext";
+import { Link } from "react-router-dom";
+import thumbsDown from '../images/thumbs-down.png'
+import thumbsUp from '../images/thumbs-up.png'
 
 
 
-const Answer = ({data}) => {
+const Answer = ({ data }) => {
 
-  const { users } = useContext(UserContext);
+  const { users, loggedInUser } = useContext(UserContext);
 
   const answerOwner = users.find(user => user.id === data.userId);
-  
-  return ( 
+
+  const { deleteAnswer, handleAnswerLikes, handleAnswerDislike, showMessageAnswer, setShowMessageAnswer } = useContext(AnswerContext)
+
+  const answerVote = data.likedBy.length - data.disLikedBy.length;
+
+  return (
     <>
-    <div className="questionContainer">
-      <div className="questionPostInfo">
-          {answerOwner && 
-          <div className="questionInfo">
-            <img src={answerOwner.avatar} alt="user avatar"/>
-            <h4>{answerOwner.username}</h4>
-          </div>
+      <div className="answerContainer">
+        <div className="questionPostInfo">
+          {answerOwner &&
+            <div className="questionInfo">
+              <img src={answerOwner.avatar} alt="user avatar" />
+              <h4>{answerOwner.username}</h4>
+            </div>
           }
-          <p>Answer was posted: <span>{data.questionPostDate}</span></p>
+          <p>Answer was posted: <span>{data.answerPostDate}</span></p>
+        </div>
+        <div className="question">
+          <p>{data.answer}</p>
+        </div>
+        <div className="editMessageAndButtons">
+          <div className="editedMessage">
+            {data.wasEdited && <p>*Note. This answer was edited*</p>}
+          </div>
+          <div className="buttonDiv">
+            {loggedInUser && loggedInUser.id === answerOwner.id &&
+              <>
+                <button onClick={() => deleteAnswer(data.id)}>Delete answer</button>
+                <Link to={`/editAnswer/${data.id}`}><button>Edit answer</button></Link>
+              </>
+            }
+          </div>
+        </div>
+
+        <div className="likeDislikeDiv">
+          <img className="thumbsUp"
+            src={thumbsUp} alt="thumbsUp" 
+            onClick={loggedInUser ?
+            () => handleAnswerLikes(data.id)
+            : 
+            () => setShowMessageAnswer(true)} />
+          <span>{answerVote}</span>
+          <img className="thumbsDown"
+            src={thumbsDown} alt="dislike" 
+            onClick={loggedInUser ? 
+            () => handleAnswerDislike(data.id) 
+            :
+            () => setShowMessageAnswer(true)} />
       </div>
-      <div className="question">
-        <p>{data.answer}</p>
+      { showMessageAnswer && <p className="loginToLike">You need to log in to like/dislike this question</p> }
       </div>
-    </div>
     </>
-   );
+  );
 }
- 
+
 export default Answer;

@@ -1,5 +1,6 @@
 import UserContext from "../context/UserContext";
 import QuestionContext from "../context/QuestionContext";
+import AnswerContext from "../context/AnswerContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import thumbsDown from '../images/thumbs-down.png'
@@ -12,11 +13,16 @@ const Question = ({data}) => {
 
   const { deleteQuestion, handleLikes, handleDislike, showMessageQuestion, setShowMessageQuestion } = useContext(QuestionContext);
 
+  const { answers } = useContext(AnswerContext)
+
   const questionOwner = users.find(user => user.id === data.userId);
 
   const QuestionVote = data.likedBy.length - data.disLikedBy.length;
   
   const location = useLocation();
+
+  const answersQuantity = answers.length
+  console.log(answersQuantity)
 
 
   return ( 
@@ -45,6 +51,8 @@ const Question = ({data}) => {
       <div className="question">
         <p>{data.question}</p>
       </div>
+
+
       <div className="editMessageAndButtons">
         <div className="editedMessage">
           {data.wasEdited && <p>*Note. This question was edited*</p>}
@@ -57,7 +65,10 @@ const Question = ({data}) => {
           </>
           }
         </div>
+
+
       </div>
+      
       <div className="likeDislikeDiv">
           <img className="thumbsUp"
             src={thumbsUp} alt="thumbsUp" 

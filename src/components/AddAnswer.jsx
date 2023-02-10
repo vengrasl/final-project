@@ -44,22 +44,20 @@ const AddAnswer = ({id}) => {
     >
           
       {({ errors, touched, values, setValues }) => (
-        <div className="addQuestionContainer">
-          <Form className="addQuestionForm">
-          <div className="form-column">
-            <label>Your Answer:</label>
+        <>
+          <Form className="addAnswerForm">
+            <label className="answerLabel">{loggedInUser.username}, leave an answer to this question</label>
             <Field
-              className="questionItself"
+              className="answerTextarrea"
               as="textarea"
               name='answer'
               value={values.answer} 
               onChange={(e)=>setValues({...values, answer:e.target.value})}
             />
             {errors.answer && touched.answer ? <span>{errors.answer}</span> : null}
-          </div>
           <button className="PostButton" type='submit'>Post answer</button>
         </Form>
-      </div>
+      </>
       )}
     </Formik>  
     </>

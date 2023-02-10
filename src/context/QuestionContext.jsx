@@ -67,8 +67,6 @@ const [showMessageQuestion, setShowMessageQuestion] = useState(false);
     }
     await updateQuestion(id, updatedQuestion);
   }
-
-
   return (
     <QuestionContext.Provider
       value={{

@@ -21,9 +21,11 @@ const Question = ({data}) => {
   
   const location = useLocation();
 
-  const answersQuantity = answers.length
-  console.log(answersQuantity)
+  const howManyAnswers = answers.filter(answer => answer.questionId === data.id);
 
+  const howManyAnswersCount = howManyAnswers.length
+
+  
 
   return ( 
     <div className="questionContainer">
@@ -40,11 +42,11 @@ const Question = ({data}) => {
       <div className="theQuestion">
         {location.pathname === `/question/${data.id}` ?
         <div className="nonLink">
-          <h2>{data.title}</h2>
+          <h2>{data.title} </h2>
         </div>
       : 
         <Link to={`/questionAnswers/${data.id}`}>
-          <h2>{data.title}</h2>
+          <h2>{data.title} ({howManyAnswersCount === 1 ? `${howManyAnswersCount} answer` : `${howManyAnswersCount} answers`})</h2>
         </Link>
         }
         </div>

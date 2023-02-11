@@ -5,13 +5,13 @@ import { useContext } from "react";
 const QuestionContext = createContext();
 const QuestionProvider = ({ children }) => {
 
-const [questions, setQuestions] = useState(null);
+  const [questions, setQuestions] = useState(null);
 
-const { loggedInUser } = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
 
-const [showMessageQuestion, setShowMessageQuestion] = useState(false);
+  const [showMessageQuestion, setShowMessageQuestion] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     const questionData = async () => {
       const res = await fetch('http://localhost:5000/questions');
       const data = await res.json();
@@ -24,7 +24,7 @@ const [showMessageQuestion, setShowMessageQuestion] = useState(false);
     const res = await fetch('http://localhost:5000/questions', {
       method: 'POST',
       body: JSON.stringify(newQuestion),
-      headers: {'Content-Type': 'application/json'}
+      headers: { 'Content-Type': 'application/json' }
     });
     const uptatedData = await res.json();
     setQuestions([...questions, uptatedData]);
@@ -47,26 +47,27 @@ const [showMessageQuestion, setShowMessageQuestion] = useState(false);
   }
 
   const handleLikes = async (id) => {
-    const updatedQuestion= questions.find(question => question.id === id);
-    if(!updatedQuestion.likedBy.includes(loggedInUser.id)) {
-        updatedQuestion.likedBy.push(loggedInUser.id);
-        updatedQuestion.disLikedBy = updatedQuestion.disLikedBy.filter(userId => userId !== loggedInUser.id);
+    const updatedQuestion = questions.find(question => question.id === id);
+    if (!updatedQuestion.likedBy.includes(loggedInUser.id)) {
+      updatedQuestion.likedBy.push(loggedInUser.id);
+      updatedQuestion.disLikedBy = updatedQuestion.disLikedBy.filter(userId => userId !== loggedInUser.id);
     } else {
-        updatedQuestion.likedBy = updatedQuestion.likedBy.filter(userId => userId !== loggedInUser.id);
+      updatedQuestion.likedBy = updatedQuestion.likedBy.filter(userId => userId !== loggedInUser.id);
     }
     await updateQuestion(id, updatedQuestion);
   }
-  
+
   const handleDislike = async (id) => {
-    const updatedQuestion= questions.find(question => question.id === id);
-    if(!updatedQuestion.disLikedBy.includes(loggedInUser.id)) {
-        updatedQuestion.disLikedBy.push(loggedInUser.id);
-        updatedQuestion.likedBy = updatedQuestion.likedBy.filter(userId => userId !== loggedInUser.id);
+    const updatedQuestion = questions.find(question => question.id === id);
+    if (!updatedQuestion.disLikedBy.includes(loggedInUser.id)) {
+      updatedQuestion.disLikedBy.push(loggedInUser.id);
+      updatedQuestion.likedBy = updatedQuestion.likedBy.filter(userId => userId !== loggedInUser.id);
     } else {
-        updatedQuestion.disLikedBy = updatedQuestion.disLikedBy.filter(userId => userId !== loggedInUser.id);
+      updatedQuestion.disLikedBy = updatedQuestion.disLikedBy.filter(userId => userId !== loggedInUser.id);
     }
     await updateQuestion(id, updatedQuestion);
   }
+
   return (
     <QuestionContext.Provider
       value={{

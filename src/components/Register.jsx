@@ -20,7 +20,7 @@ const Register = () => {
     addNewUser(newUser);
     setLoggedInUser(newUser);
     navigation('/');
-  } 
+  }
 
   const validationSchema = Yup.object().shape({
     username: Yup.string()
@@ -40,18 +40,18 @@ const Register = () => {
       .required('This field must be filled.'),
   });
 
-  return ( 
+  return (
     <div className="registerPage">
       <Formik
         initialValues={{
           username: '',
           password: '',
           avatar: ''
-        }} 
+        }}
         validationSchema={validationSchema}
-          
-        onSubmit= {(values, {resetForm}) => {
-          resetForm({values: ''});
+
+        onSubmit={(values, { resetForm }) => {
+          resetForm({ values: '' });
           handleSubmit(values);
         }}
       >
@@ -63,61 +63,61 @@ const Register = () => {
                 <Field
                   type="text"
                   name='username'
-                  value={values.username} 
-                  onChange={(e)=>setValues({...values, username:e.target.value})}
+                  value={values.username}
+                  onChange={(e) => setValues({ ...values, username: e.target.value })}
                 />
                 {
-                  errors.username && touched.username ? 
+                  errors.username && touched.username ?
                     <span>{errors.username}</span>
                     : null
                 }
               </label>
               <label>Password (8-20 characters):
-                <Field 
+                <Field
                   type="password"
                   name='password'
-                  value={values.password} 
-                  onChange={(e)=>setValues({...values, password:e.target.value})}
+                  value={values.password}
+                  onChange={(e) => setValues({ ...values, password: e.target.value })}
                 />
                 {
-                  errors.password && touched.password ? 
+                  errors.password && touched.password ?
                     <span>{errors.password}</span>
                     : null
                 }
               </label>
               <label>Confirm password:
-                <Field 
+                <Field
                   type="password"
                   name='passwordRepeat'
-                  value={values.passwordRepeat} 
-                  onChange={(e)=>setValues({...values, passwordRepeat:e.target.value})}
+                  value={values.passwordRepeat}
+                  onChange={(e) => setValues({ ...values, passwordRepeat: e.target.value })}
                 />
                 {
-                  errors.passwordRepeat && touched.passwordRepeat ? 
+                  errors.passwordRepeat && touched.passwordRepeat ?
                     <span>{errors.passwordRepeat}</span>
                     : null
                 }
-                </label>
-                <label>Avatar:
-                  <Field 
-                    type="url"
-                    name='avatar'
-                    value={values.avatar} 
-                    onChange={(e)=>setValues({...values, avatar: e.target.value})}
-                  />
-                  {
-                    errors.avatar && touched.avatar ? 
-                      <span>{errors.avatar}</span>
-                      : null
-                  }
-                </label>
-                <button className="registerButton" type='submit'>Register</button>
+              </label>
+              <label>Avatar:
+                <Field
+                  type="url"
+                  name='avatar'
+                  value={values.avatar}
+                  onChange={(e) => setValues({ ...values, avatar: e.target.value })}
+                />
+                {
+                  errors.avatar && touched.avatar ?
+                    <span>{errors.avatar}</span>
+                    : null
+                }
+              </label>
+              <button className="registerButton" type='submit'>Register</button>
             </Form>
           </div>
-        )} 
+        )}
       </Formik>
     </div>
   );
 }
- 
+
 export default Register;

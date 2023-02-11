@@ -8,7 +8,7 @@ const UserProvider = ({ children }) => {
 
   const [users, setUsers] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     const userData = async () => {
       const res = await fetch('http://localhost:5000/users');
       const data = await res.json();

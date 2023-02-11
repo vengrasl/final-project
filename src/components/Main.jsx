@@ -1,10 +1,10 @@
 import Questions from "./Questions";
 const Main = () => {
-  return ( 
+  return (
     <>
       <Questions />
     </>
-   );
+  );
 }
- 
+
 export default Main;

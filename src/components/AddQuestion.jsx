@@ -34,55 +34,56 @@ const AddQuestion = () => {
     question: Yup.string()
       .min(5, 'Question must be at least 5 characters length.')
       .required('This field must be filled.'),
-  }); 
+  });
 
-  return ( 
+  return (
     <>
       <Formik
-      initialValues={{
-        title: '',
-        question: ''
-      }} 
+        initialValues={{
+          title: '',
+          question: ''
+        }}
 
-      validationSchema={validationSchema}
-  
-      onSubmit= {(values, {resetForm} )=> {
-        resetForm({values: ''})
-        handleSubmit(values);
-      }}
-    >
-          
-      {({ errors, touched, values, setValues }) => (
-        <div className="addQuestionContainer">
-          <Form className="addQuestionForm">
-          <div className="form-column">
-            <label>Your question title:</label>
-            <Field
-              className= "questionTitle"
-              name='title'
-              value={values.title} 
-              onChange={(e)=>setValues({...values, title:e.target.value})}
-            />
-            {errors.title && touched.title ? <span>{errors.title}</span> : null}
+        validationSchema={validationSchema}
+
+        onSubmit={(values, { resetForm }) => {
+          resetForm({ values: '' })
+          handleSubmit(values);
+        }}
+      >
+
+        {({ errors, touched, values, setValues }) => (
+          <div className="addQuestionContainer">
+            <Form className="addQuestionForm">
+              <h1>Add a question</h1>
+              <div className="form-columnOne">
+                <label>Your question title:</label>
+                <Field
+                  className="questionTitle"
+                  name='title'
+                  value={values.title}
+                  onChange={(e) => setValues({ ...values, title: e.target.value })}
+                />
+                {errors.title && touched.title ? <span>{errors.title}</span> : null}
+              </div>
+              <div className="form-columnTwo">
+                <label>Your question:</label>
+                <Field
+                  className="questionItself"
+                  as="textarea"
+                  name='question'
+                  value={values.question}
+                  onChange={(e) => setValues({ ...values, question: e.target.value })}
+                />
+                {errors.question && touched.question ? <span>{errors.question}</span> : null}
+              </div>
+              <button className="PostButton" type='submit'>Post question</button>
+            </Form>
           </div>
-          <div className="form-column">
-            <label>Your question:</label>
-            <Field
-              className="questionItself"
-              as="textarea"
-              name='question'
-              value={values.question} 
-              onChange={(e)=>setValues({...values, question:e.target.value})}
-            />
-            {errors.question && touched.question ? <span>{errors.question}</span> : null}
-          </div>
-          <button className="PostButton" type='submit'>Post question</button>
-        </Form>
-      </div>
-      )}
-    </Formik>  
+        )}
+      </Formik>
     </>
-   );
+  );
 }
- 
+
 export default AddQuestion;

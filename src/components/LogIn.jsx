@@ -23,9 +23,8 @@ const LogIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formFields)
-    const loggedInUser  = users.find(user => user.username === formFields.username && user.password === formFields.password)
-    if (loggedInUser ){
+    const loggedInUser = users.find(user => user.username === formFields.username && user.password === formFields.password)
+    if (loggedInUser) {
       setLoggedInUser(loggedInUser)
       navigate('/')
       setShowMessageQuestion(false)
@@ -35,36 +34,36 @@ const LogIn = () => {
     }
   }
 
-  return ( 
+  return (
     <>
       <div className="loginDiv">
-          <form onSubmit={handleSubmit}>
-            <label>
-              <input 
-                type="text"
-                placeholder="username" 
-                name="username"
-                value={formFields.username}
-                onChange={(e)=>setFormFields({...formFields, username:e.target.value})}
-              />
-            </label>
-            <label>
-              <input 
-                type="password"
-                placeholder="password" 
-                name="password"
-                value={formFields.password}
-                onChange={(e)=>setFormFields({...formFields, password:e.target.value})}
-              />
-            </label>
-            <input type="submit" value="Log In" />
-          </form>
-          {
+        <form onSubmit={handleSubmit}>
+          <label>
+            <input
+              type="text"
+              placeholder="username"
+              name="username"
+              value={formFields.username}
+              onChange={(e) => setFormFields({ ...formFields, username: e.target.value })}
+            />
+          </label>
+          <label>
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              value={formFields.password}
+              onChange={(e) => setFormFields({ ...formFields, password: e.target.value })}
+            />
+          </label>
+          <input className="loginbtn" type="submit" value="Log In" />
+        </form>
+        {
           failedLogIn && <span>Invalid username or password</span>
-          }
+        }
       </div>
     </>
-   );
+  );
 }
- 
+
 export default LogIn;

@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
-const AddAnswer = ({id}) => {
+const AddAnswer = ({ id }) => {
 
   const { addNewQuestion } = useContext(AnswerContext);
   const { loggedInUser } = useContext(UserContext);
@@ -27,41 +27,43 @@ const AddAnswer = ({id}) => {
     answer: Yup.string()
       .min(5, 'Answer must be at least 5 characters length.')
       .required('This field must be filled.'),
-  }); 
+  });
 
 
-  return ( 
+  return (
     <>
-    <Formik
-      initialValues={{
-        answer: ''
-      }} 
-      validationSchema={validationSchema}
-      onSubmit= {(values, {resetForm} )=> {
-        resetForm({values: ''})
-        handleSubmit(values);
-      }}
-    >
-          
-      {({ errors, touched, values, setValues }) => (
-        <>
-          <Form className="addAnswerForm">
-            <label className="answerLabel">{loggedInUser.username}, leave an answer to this question</label>
-            <Field
-              className="answerTextarrea"
-              as="textarea"
-              name='answer'
-              value={values.answer} 
-              onChange={(e)=>setValues({...values, answer:e.target.value})}
-            />
-            {errors.answer && touched.answer ? <span>{errors.answer}</span> : null}
-          <button className="PostButton" type='submit'>Post answer</button>
-        </Form>
-      </>
-      )}
-    </Formik>  
+      <Formik
+        initialValues={{
+          answer: ''
+        }}
+        validationSchema={validationSchema}
+        onSubmit={(values, { resetForm }) => {
+          resetForm({ values: '' })
+          handleSubmit(values);
+        }}
+      >
+
+        {({ errors, touched, values, setValues }) => (
+          <>
+            <Form className="addAnswerForm">
+              <label className="answerLabel">{loggedInUser.username}, leave an answer to this question</label>
+              <div className="addAnswer">
+              <Field
+                className="answerTextarrea"
+                as="textarea"
+                name='answer'
+                value={values.answer}
+                onChange={(e) => setValues({ ...values, answer: e.target.value })}
+              />
+              {errors.answer && touched.answer ? <span>{errors.answer}</span> : null}
+              </div>
+              <button className="PostButton" type='submit'>Post answer</button>
+            </Form>
+          </>
+        )}
+      </Formik>
     </>
-   );
+  );
 }
- 
+
 export default AddAnswer;

@@ -9,60 +9,57 @@ import UserContext from '../context/UserContext';
 
 const Answers = () => {
 
-  //question id
   const { id } = useParams();
-  
+
   const { questions } = useContext(QuestionContext);
 
   const { answers } = useContext(AnswerContext);
 
   const { loggedInUser } = useContext(UserContext)
 
-  //pasirinktas klausimas
   const currentQuestion = questions ? questions.filter(question => question.id.toString() === id) : [];
 
-  //specifinis atsakymas
   const currentAnswer = answers ? answers.filter(answer => answer.questionId && answer.questionId.toString() === id) : [];
 
-  return ( 
+  return (
     <section className='answers'>
 
-{
-  currentQuestion &&
-  currentQuestion.map(question => (
-    <Question 
-      key={question.id}
-      data={question} 
-    />
-  ))
-}
+      {
+        currentQuestion &&
+        currentQuestion.map(question => (
+          <Question
+            key={question.id}
+            data={question}
+          />
+        ))
+      }
 
-<h3>Answers:</h3>
-    {
-      currentAnswer ?
-      currentAnswer.length > 0 ?
-      currentAnswer.map(answer => 
-        <Answer
-        key={answer.id}
-        data={answer}
-        />
-      )
-      :
-      <div className="noPosts">
-        <p>There are no answers to this question yet.</p>
-      </div>
-      :
-      <img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" alt="loading"/>
-    }
+      <h3 className='answersSection'>Answers section</h3>
+      {
+        currentAnswer ?
+          currentAnswer.length > 0 ?
+            currentAnswer.map(answer =>
+              <Answer
+                key={answer.id}
+                data={answer}
+              />
+            )
+            :
+            <div className="noPosts">
+              <p>There are no answers to this question yet.</p>
+            </div>
+          :
+          <img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" alt="loading" />
+      }
 
-    {
-      loggedInUser &&
-      <AddAnswer
-       id={id}/>
-    }
-       
+      {
+        loggedInUser &&
+        <AddAnswer
+          id={id} />
+      }
+
     </section>
-   );
+  );
 }
- 
+
 export default Answers;

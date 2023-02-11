@@ -11,93 +11,57 @@
       "password": "123123123",
       "avatar": "https://i.pravatar.cc/150?img=11",
       "id": 1675702740380
-    },
-    {
-      "username": "newUser",
-      "password": "123123123",
-      "avatar": "https://i.pravatar.cc/150?img=11",
-      "id": 1675927278810
-    },
-    {
-      "username": "aliAbdulJabar",
-      "password": "123123123",
-      "avatar": "https://e7.pngegg.com/pngimages/456/700/png-clipart-computer-icons-avatar-user-profile-avatar-heroes-logo.png",
-      "id": 1676008544989
     }
   ],
   "questions": [
     {
-      "title": "new question",
-      "question": "Does it work? looks like it works",
-      "userId": 1675927278810,
-      "id": 1675927294063,
-      "questionPostDate": "2/9/2023, 9:21:34 AM",
-      "wasEdited": true,
-      "likedBy": [
-        1
-      ],
-      "disLikedBy": []
-    },
-    {
-      "title": "Car to buy",
-      "question": "What in your opinion is the best car to buy for 10000eu? and why",
-      "userId": 1676008544989,
-      "id": 1676008646286,
-      "questionPostDate": "2/10/2023, 7:57:26 AM",
-      "wasEdited": false,
-      "likedBy": [
-        1
-      ],
-      "disLikedBy": []
-    },
-    {
-      "title": "the title of the question",
-      "question": "the question goes here",
+      "title": "question title",
+      "question": "question answer.\n",
       "userId": 1,
-      "id": 1676024834776,
-      "questionPostDate": "2/10/2023, 12:27:14 PM",
-      "wasEdited": false,
+      "id": 1676128473876,
+      "questionPostDate": "2/11/2023, 5:14:33 PM",
+      "wasEdited": true,
+      "likedBy": [],
+      "disLikedBy": []
+    },
+    {
+      "title": "question nr2",
+      "question": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "userId": 1,
+      "id": 1676132630898,
+      "questionPostDate": "2/11/2023, 6:23:50 PM",
+      "wasEdited": true,
       "likedBy": [],
       "disLikedBy": []
     }
   ],
   "answers": [
     {
-      "answer": "why does it work?",
-      "id": 2,
-      "answerPostDate": "2/9/2023, 15:25:42 AM",
-      "questionId": 1675927294063,
-      "userId": 1675927278810,
+      "answer": "first answer to this question.....",
+      "userId": 1,
+      "id": 1676128786998,
+      "answerPostDate": "2/11/2023, 5:19:46 PM",
+      "questionId": 1676128473876,
+      "wasEdited": true,
+      "likedBy": [],
+      "disLikedBy": []
+    },
+    {
+      "answer": "niceeee",
+      "userId": 1,
+      "id": 1676142100134,
+      "answerPostDate": "2/11/2023, 9:01:40 PM",
+      "questionId": 1676132630898,
       "wasEdited": false,
       "likedBy": [],
       "disLikedBy": []
     },
     {
-      "answer": "what matters is, that it works bratan",
+      "answer": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
       "userId": 1,
-      "id": 1675963547150,
-      "answerPostDate": "2/9/2023, 7:25:47 PM",
-      "questionId": 1675927294063,
-      "wasEdited": true,
-      "likedBy": [],
-      "disLikedBy": []
-    },
-    {
-      "answer": "Depends. What are your preferences???",
-      "userId": 1,
-      "id": 1676008702099,
-      "answerPostDate": "2/10/2023, 7:58:22 AM",
-      "questionId": 1676008646286,
-      "wasEdited": true,
-      "likedBy": [],
-      "disLikedBy": []
-    },
-    {
-      "answer": "one more answer",
-      "userId": 1,
-      "id": 1676019407273,
-      "answerPostDate": "2/10/2023, 10:56:47 AM",
-      "questionId": 1676008646286,
+      "id": 1676142162963,
+      "answerPostDate": "2/11/2023, 9:02:42 PM",
+      "questionId": 1676132630898,
       "wasEdited": false,
       "likedBy": [],
       "disLikedBy": []

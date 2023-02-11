@@ -9,13 +9,13 @@ const UserInfo = () => {
     setLoggedInUser(null);
   }
 
-  return ( 
+  return (
     <div className="userInfoDiv">
-      <img src={loggedInUser.avatar} alt="user avatar"/>
+      <img src={loggedInUser.avatar} alt="user avatar" />
       <span>{loggedInUser.username}</span>
-      <button onClick={() => LogoutUser()}>LogOut</button>
+      <button className="logOut" onClick={() => LogoutUser()}>Log out</button>
     </div>
-   );
+  );
 }
- 
+
 export default UserInfo;

@@ -7,7 +7,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const EditAnswer = () => {
 
-  const {answers, updateAnswer} = useContext(AnswerContext)
+  const { answers, updateAnswer } = useContext(AnswerContext)
 
   const { id } = useParams();
 
@@ -17,9 +17,9 @@ const EditAnswer = () => {
 
   const handleSubmit = (values) => {
     if (currentAnswer.answer !== values.answer) {
-      updateAnswer(id, {...values, wasEdited: true});
+      updateAnswer(id, { ...values, wasEdited: true });
     } else {
-      updateAnswer(id, {...values, wasEdited: false});
+      updateAnswer(id, { ...values, wasEdited: false });
     }
     navigate('/')
   }
@@ -30,44 +30,47 @@ const EditAnswer = () => {
       .required('This field must be filled.')
   });
 
-  return ( 
-    <>
-    <h1>Edit: {currentAnswer.title}</h1>
+  return (
+    <div className="editAnswer">
+      <h1>Edit your answer</h1>
       <Formik
-      initialValues={{
-        answer: currentAnswer.answer,
-      }} 
+        initialValues={{
+          answer: currentAnswer.answer,
+        }}
 
-      validationSchema={validationSchema}
-  
-      onSubmit= {(values, {resetForm} )=> {
-        resetForm({values: ''})
-        handleSubmit(values);
-      }}
-    >
-          
-      {({ errors, touched, values, setValues }) => (
+        validationSchema={validationSchema}
 
-        <Form >
-          <label>Your answer:
-          <Field 
-              as="textarea"
-              name='answer'
-              value={values.answer} 
-              onChange={(e)=>setValues({...values, answer:e.target.value})}
-            />
-             {
-              errors.answer && touched.answer ? 
-              <span>{errors.answer}</span> : null     
+        onSubmit={(values, { resetForm }) => {
+          resetForm({ values: '' })
+          handleSubmit(values);
+        }}
+      >
+
+        {({ errors, touched, values, setValues }) => (
+
+          <Form className="editAnswerForm">
+            <label>Your answer:</label>
+            <div className="editQuestText">
+              <Field
+                className='editAnswerArea'
+                as="textarea"
+                name='answer'
+                value={values.answer}
+                onChange={(e) => setValues({ ...values, answer: e.target.value })}
+              />
+              {
+                errors.answer && touched.answer ?
+                  <span>{errors.answer}</span> : null
               }
-          </label>
-
-          <button className="PostButton" type='submit'>Post answer</button>
-        </Form>
-      )}
-    </Formik>  
-    </>
-   );
+            </div>
+            <div className="editBtnDiv">
+              <button className="PostButton" type='submit'>Post answer</button>
+            </div>
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
 }
- 
+
 export default EditAnswer;

@@ -22,6 +22,11 @@ header{
   border-bottom: 2px solid #333D51;
   background-color: #CBD0D8;
 }
+.logOut {
+  background-color: #d8d3cb;
+  width: 60px;
+  height: 22px;
+}
 header h3 {
   color: black;
 }
@@ -49,6 +54,11 @@ header a:hover {
   text-align: center;
   padding-top: 5px;
 }
+.loginbtn {
+  background-color: #d8d3cb;
+  width: 50px;
+  cursor: pointer;
+}
 .userInfoDiv{
   height: 64px;
   display: flex;
@@ -63,6 +73,9 @@ header a:hover {
   border-radius: 50%;
   border: 2px solid #333D51;
 }
+.userInfoDiv > span {
+  font-size: 20px;
+}
 .registerPage {
   display: flex;
   flex-direction: column;
@@ -76,6 +89,19 @@ header a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.form-columnOne {
+  height: 55px;
+}
+.form-columnTwo {
+  min-height: 136px;
+}
+button {
+  background-color: #d8d3cb;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.9;
 }
 .registerForm {
   display: flex;
@@ -128,7 +154,7 @@ footer > p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap:20px;
+  gap: 5px;
 }
 .loggedInLinks, .notLoggedInLinks {
   display: flex;
@@ -150,8 +176,8 @@ footer > p {
   display: flex;
   flex-direction: column;
   border: 2px solid #333D51;
-  min-width: 500px;
   max-width: 500px;
+  width: 100%;
   gap: 10px;
   background-color: #f0f0ef;
 }
@@ -159,8 +185,8 @@ footer > p {
   display: flex;
   flex-direction: column;
   border: 2px solid #333D51;
-  min-width: 500px;
   max-width: 500px;
+  width: 100%;
   gap: 10px;
   background-color: #f0f0ef;
 }
@@ -171,11 +197,46 @@ footer > p {
   gap: 30px;
   padding: 0 10px;
 }
+.PostButton {
+  width: 110px;
+  height: 25px;
+  text-align: center;
+}
 .question > p {
   padding: 0 10px;
   text-align: justify;
 }
-
+.editBtnDiv {
+  display: flex;
+  justify-content: center;
+}
+.editQuestText {
+  display: flex;
+  flex-direction: column;
+  min-height: 120px;
+}
+.editQuestText > span {
+  color: red;
+}
+.editAnswerArea {
+  width: 290px;
+  height: 100px;
+}
+.editAnswer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0ef;
+}
+.editAnswer> form {
+  display: flex;
+  flex-direction: column;
+}
+.editAnswer > h1 {
+  padding-bottom: 50px;
+}
 .questionInfo{
   display: flex;
   align-items: center;
@@ -199,7 +260,10 @@ footer > p {
   color: #333D51;
   text-decoration: underline;
 }
-
+.editAnswerField {
+  width: 290px;
+  height: 120px;
+}
 .theQuestion h1 {
   word-break: break-all;
   padding: 0 10px;
@@ -216,6 +280,9 @@ footer > p {
   display: flex;
   width: 50%;
   justify-content: space-evenly;
+}
+.buttonDiv button{
+  width: 100px;
 }
 .thumbsDown, .thumbsUp {
   width: 20px;
@@ -242,11 +309,25 @@ footer > p {
   flex: 1;
   justify-content: center;
 }
+.sort-container {
+  background-color: #F4F3EA;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.addQuestionForm > h1 {
+  padding-bottom: 30px;
+}
+.addQuestionForm span {
+  color: red;
+}
 .addQuestionForm > div {
   display: flex;
   flex-direction: column;
 }
 .addQuestionContainer {
+  background-color: #F4F3EA;
   display: flex;
   flex: 1;
 }
@@ -257,8 +338,14 @@ footer > p {
   width: 290px;
   height: 100px;
 }
+.editTextArea {
+  width: 290px;
+  height: 100px;
+}
 .loginToLike {
   display: inline-block;
+  text-align: right;
+  padding-right: 10px;
 }
 .nonLink a {
   padding-left: 10px;
@@ -271,17 +358,67 @@ footer > p {
   justify-content: center;
   align-items: center;
   background-color: #F4F3EA;
+  gap: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .addAnswerForm {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 30px;
 }
+
 .answerTextarrea {
   width: 300px;
   height: 200px;
 }
+.filterCont {
+  display: flex;
+}
+.editedText{
+  font-style: italic;
+}
+.editQuestion {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4F3EA;
+}
+.editQuestion > h1 {
+  padding-bottom: 50px;
+}
+.editQuestion > form {
+  display: flex;
+  flex-direction: column;
+}
+.addAnswer {
+  display: flex;
+  flex-direction: column;
+  height: 218px;
+  width: 300px;
+}
+.addAnswer > span {
+  color: red;
+}
+.answerLabel {
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+.answersSection {
+  font-size: 30px;
+}
+.question > p {
+  overflow-wrap: break-word;
+}
+
+
 @media (max-width: 640px){
+  .questionContainer, .answerContainer {
+    max-width: 450px
+  }
   .loginDiv > form {
     display: flex;
     flex-direction: column;
@@ -297,5 +434,7 @@ footer > p {
   .loggedIn, .notLoggedIn{
     height: 90px;
   }
+  .loginbtn {
+    width: 173px;
+  }
 }
-

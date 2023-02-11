@@ -5,13 +5,13 @@ import { useContext } from "react";
 const AnswerContext = createContext();
 const AnswerProvider = ({ children }) => {
 
-const [answers, setAnswers] = useState(null);
+  const [answers, setAnswers] = useState(null);
 
-const { loggedInUser } = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
 
-const [showMessageAnswer, setShowMessageAnswer] = useState(false);
+  const [showMessageAnswer, setShowMessageAnswer] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     const questionData = async () => {
       const res = await fetch('http://localhost:5000/answers');
       const data = await res.json();
@@ -24,7 +24,7 @@ const [showMessageAnswer, setShowMessageAnswer] = useState(false);
     await fetch('http://localhost:5000/answers', {
       method: 'POST',
       body: JSON.stringify(newAnswer),
-      headers: {'Content-Type': 'application/json'}
+      headers: { 'Content-Type': 'application/json' }
     });
     setAnswers([...answers, newAnswer]);
   }
@@ -44,10 +44,10 @@ const [showMessageAnswer, setShowMessageAnswer] = useState(false);
     });
     setAnswers(answers.map(answer => answer.id.toString() === id ? { ...answer, ...updatedAnswer } : answer));
   }
-  
+
   const handleAnswerLikes = async (id) => {
     const answerToUpdate = answers.find(answer => answer.id === id);
-    if(!answerToUpdate.likedBy.includes(loggedInUser.id)) {
+    if (!answerToUpdate.likedBy.includes(loggedInUser.id)) {
       answerToUpdate.likedBy.push(loggedInUser.id);
       answerToUpdate.disLikedBy = answerToUpdate.disLikedBy.filter(userId => userId !== loggedInUser.id);
     } else {
@@ -55,10 +55,10 @@ const [showMessageAnswer, setShowMessageAnswer] = useState(false);
     }
     await updateAnswer(id, answerToUpdate);
   }
-  
+
   const handleAnswerDislike = async (id) => {
     const answerToUpdate = answers.find(answer => answer.id === id);
-    if(!answerToUpdate.disLikedBy.includes(loggedInUser.id)) {
+    if (!answerToUpdate.disLikedBy.includes(loggedInUser.id)) {
       answerToUpdate.disLikedBy.push(loggedInUser.id);
       answerToUpdate.likedBy = answerToUpdate.likedBy.filter(userId => userId !== loggedInUser.id);
     } else {
@@ -66,7 +66,7 @@ const [showMessageAnswer, setShowMessageAnswer] = useState(false);
     }
     await updateAnswer(id, answerToUpdate);
   }
-  
+
   return (
     <AnswerContext.Provider
       value={{

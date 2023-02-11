@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import thumbsDown from '../images/thumbs-down.png'
 import thumbsUp from '../images/thumbs-up.png'
 
-
-
 const Answer = ({ data }) => {
 
   const { users, loggedInUser } = useContext(UserContext);
@@ -34,7 +32,7 @@ const Answer = ({ data }) => {
         </div>
         <div className="editMessageAndButtons">
           <div className="editedMessage">
-            {data.wasEdited && <p>*Note. This answer was edited*</p>}
+            {data.wasEdited && <p>Note. This answer was edited</p>}
           </div>
           <div className="buttonDiv">
             {loggedInUser && loggedInUser.id === answerOwner.id &&
@@ -48,20 +46,20 @@ const Answer = ({ data }) => {
 
         <div className="likeDislikeDiv">
           <img className="thumbsUp"
-            src={thumbsUp} alt="thumbsUp" 
+            src={thumbsUp} alt="thumbsUp"
             onClick={loggedInUser ?
-            () => handleAnswerLikes(data.id)
-            : 
-            () => setShowMessageAnswer(true)} />
+              () => handleAnswerLikes(data.id)
+              :
+              () => setShowMessageAnswer(true)} />
           <span>{answerVote}</span>
           <img className="thumbsDown"
-            src={thumbsDown} alt="dislike" 
-            onClick={loggedInUser ? 
-            () => handleAnswerDislike(data.id) 
-            :
-            () => setShowMessageAnswer(true)} />
-      </div>
-      { showMessageAnswer && <p className="loginToLike">You need to log in to like/dislike this question</p> }
+            src={thumbsDown} alt="dislike"
+            onClick={loggedInUser ?
+              () => handleAnswerDislike(data.id)
+              :
+              () => setShowMessageAnswer(true)} />
+        </div>
+        {showMessageAnswer && <p className="loginToLike">You need to log in to like/dislike this answer</p>}
       </div>
     </>
   );

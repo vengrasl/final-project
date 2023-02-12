@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "lukas",
+      "password": "123",
+      "avatar": "https://i.pravatar.cc/150?img=11"
+    },
+    {
+      "username": "tomas",
+      "password": "123123123",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHoWaHIIN3NRAgi526l-J3ltJoZWVIwCDWrA&usqp=CAU",
+      "id": 1676212586602
+    }
+  ],
+  "questions": [
+    {
+      "title": "First question title",
+      "question": "This is the first question - what time is it?",
+      "userId": 1,
+      "id": 1676212513997,
+      "questionPostDate": "2/12/2023, 4:35:13 PM",
+      "wasEdited": false,
+      "likedBy": [],
+      "disLikedBy": []
+    }
+  ],
+  "answers": [
+    {
+      "answer": "4:37 PM",
+      "userId": 1676212586602,
+      "id": 1676212609964,
+      "answerPostDate": "2/12/2023, 4:36:49 PM",
+      "questionId": 1676212513997,
+      "wasEdited": true,
+      "likedBy": [],
+      "disLikedBy": []
+    }
+  ]
+}

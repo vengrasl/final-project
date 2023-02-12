@@ -1,0 +1,456 @@
+*,
+* ::after,
+* ::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root{
+  --corp-dark-scholar: #333D51;
+  --corp-yellow-scholar: #D3AC2B;
+  --corp-light-scholar: #CBD0D8;
+  --corp-white-scholar: #F4F3EA;
+}
+#root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+header{
+  height: 64px;
+  border-bottom: 2px solid #333D51;
+  background-color: #CBD0D8;
+}
+.logOut {
+  background-color: #d8d3cb;
+  width: 60px;
+  height: 22px;
+}
+header h3 {
+  color: black;
+}
+header a {
+  text-decoration: none;
+}
+header a:hover {
+  opacity: 0.9;
+}
+.loginDiv{
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 50px;
+}
+.loginDiv > form {
+  display: flex;
+  gap: 10px;
+}
+.loginDiv span {
+  color: red;
+  width: 100%;
+  text-align: center;
+  padding-top: 5px;
+}
+.loginbtn {
+  background-color: #d8d3cb;
+  width: 50px;
+  cursor: pointer;
+}
+.userInfoDiv{
+  height: 64px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 50px;
+  gap: 20px;
+}
+.userInfoDiv > img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid #333D51;
+}
+.userInfoDiv > span {
+  font-size: 20px;
+}
+.registerPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  background-color: var(--corp-white-scholar);
+}
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-columnOne {
+  height: 55px;
+}
+.form-columnTwo {
+  min-height: 136px;
+}
+button {
+  background-color: #d8d3cb;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.9;
+}
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.registerForm > label {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: 60px;
+}
+.registerForm > label > span {
+  font-size: 15px;
+  padding-top: 3px;
+  color: red;
+}
+.registerButton {
+  background-color: #CBD0D8;
+  width: 100px;
+  height: 25px;
+  cursor: pointer;
+}
+.registerButton:hover {
+  opacity: 0.9;
+}
+.registerButton:active {
+  opacity: 0.8;
+}
+.formContainer > h1 {
+  padding-bottom: 50px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  height: 64px;
+  background-color: #CBD0D8;
+  border-top: 2px solid #333D51;
+}
+footer > p {
+  font-size: 18px;
+  text-align: center;
+}
+.loggedIn, .notLoggedIn {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+.loggedInLinks, .notLoggedInLinks {
+  display: flex;
+  gap: 15px;
+  padding-left: 50px;
+}
+.homeQuestions {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  background-color: #F4F3EA;
+  padding: 30px 30px;
+  justify-content: center;
+}
+.questionContainer {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #333D51;
+  max-width: 500px;
+  width: 100%;
+  gap: 10px;
+  background-color: #f0f0ef;
+}
+.answerContainer {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #333D51;
+  max-width: 500px;
+  width: 100%;
+  gap: 10px;
+  background-color: #f0f0ef;
+}
+.questionPostInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 0 10px;
+}
+.PostButton {
+  width: 110px;
+  height: 25px;
+  text-align: center;
+}
+.question > p {
+  padding: 0 10px;
+  text-align: justify;
+}
+.editBtnDiv {
+  display: flex;
+  justify-content: center;
+}
+.editQuestText {
+  display: flex;
+  flex-direction: column;
+  min-height: 120px;
+}
+.editQuestText > span {
+  color: red;
+}
+.editAnswerArea {
+  width: 290px;
+  height: 100px;
+}
+.editAnswer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0ef;
+}
+.editAnswer> form {
+  display: flex;
+  flex-direction: column;
+}
+.editAnswer > h1 {
+  padding-bottom: 50px;
+}
+.questionInfo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.questionInfo > img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 2px solid #333D51;
+}
+.theQuestion {
+  padding: 0 10px;
+}
+.theQuestion a {
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+}
+.theQuestion a:hover {
+  color: #333D51;
+  text-decoration: underline;
+}
+.editAnswerField {
+  width: 290px;
+  height: 120px;
+}
+.theQuestion h1 {
+  word-break: break-all;
+  padding: 0 10px;
+}
+
+.editMessageAndButtons {
+  display: flex;
+}
+.editedMessage {
+  padding-left: 10px;
+  width: 50%;
+}
+.buttonDiv {
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;
+}
+.buttonDiv button{
+  width: 100px;
+}
+.thumbsDown, .thumbsUp {
+  width: 20px;
+}
+.thumbsDown:hover, .thumbsUp:hover {
+  opacity: 0.9;
+}
+.thumbsDown:active, .thumbsUp:active {
+  opacity: 0.8;
+}
+.likeDislikeDiv {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+.likeDislikeDiv span {
+  font-size: 20px;
+}
+.addQuestionForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+.sort-container {
+  background-color: #F4F3EA;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.sort-container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addQuestionForm > h1 {
+  padding-bottom: 30px;
+}
+.addQuestionForm span {
+  color: red;
+}
+.addQuestionForm > div {
+  display: flex;
+  flex-direction: column;
+}
+.addQuestionContainer {
+  background-color: #F4F3EA;
+  display: flex;
+  flex: 1;
+}
+.questionTitle {
+  width: 290px;
+}
+.questionItself {
+  width: 290px;
+  height: 100px;
+}
+.editTextArea {
+  width: 290px;
+  height: 100px;
+}
+.loginToLike {
+  display: inline-block;
+  text-align: right;
+  padding-right: 10px;
+}
+.nonLink a {
+  padding-left: 10px;
+  text-decoration: none;
+}
+.answers {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4F3EA;
+  gap: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.addAnswerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.answerTextarrea {
+  width: 300px;
+  height: 200px;
+}
+.filterCont {
+  display: flex;
+}
+.editedText{
+  font-style: italic;
+}
+.editQuestion {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4F3EA;
+}
+.editQuestion > h1 {
+  padding-bottom: 50px;
+}
+.editQuestion > form {
+  display: flex;
+  flex-direction: column;
+}
+.addAnswer {
+  display: flex;
+  flex-direction: column;
+  height: 218px;
+  width: 300px;
+}
+.addAnswer > span {
+  color: red;
+}
+.answerLabel {
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+.answersSection {
+  font-size: 30px;
+}
+.question > p {
+  overflow-wrap: break-word;
+}
+
+
+@media (max-width: 640px){
+  .questionContainer, .answerContainer {
+    max-width: 450px
+  }
+  .loginDiv > form {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  header {
+    height: 90px;
+  }
+  .loginDiv {
+    height: 90px;
+    align-items: center;
+  }
+  .loggedIn, .notLoggedIn{
+    height: 90px;
+  }
+  .loginbtn {
+    width: 173px;
+  }
+}
+@media (max-width: 400px) {
+  .buttonDiv > button{
+    width: 60px;
+  }
+  .buttonDiv > a > button {
+    width: 60px;
+  }
+  .likeDislikeDiv {
+    padding-right: 25px;
+  }
+}

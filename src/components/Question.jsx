@@ -11,7 +11,7 @@ const Question = ({ data }) => {
 
   const { users, loggedInUser } = useContext(UserContext);
 
-  const { deleteQuestion, handleLikes, handleDislike, showMessageQuestion, setShowMessageQuestion } = useContext(QuestionContext);
+  const { deleteQuestion, handleLikes, handleDislike } = useContext(QuestionContext);
 
   const { answers } = useContext(AnswerContext)
 
@@ -66,21 +66,14 @@ const Question = ({ data }) => {
       <div className="likeDislikeDiv">
         <img className="thumbsUp"
           src={thumbsUp} alt="thumbsUp"
-          onClick={loggedInUser ?
-            () => handleLikes(data.id)
-            :
-            () => setShowMessageQuestion(true)} />
+          onClick={() => handleLikes(data.id)} 
+          />
         <span>{QuestionVote}</span>
         <img className="thumbsDown"
           src={thumbsDown} alt="dislike"
-          onClick={loggedInUser ?
-            () => handleDislike(data.id)
-            :
-            () => setShowMessageQuestion(true)} />
+          onClick={() => handleDislike(data.id)} 
+          />
       </div>
-      {showMessageQuestion &&
-       <p className="loginToLike">You need to log in to like/dislike this question</p>
-}
     </div>
   );
 }

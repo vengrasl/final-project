@@ -7,9 +7,7 @@ import AnswerContext from "../context/AnswerContext";
 const Questions = () => {
   const { questions } = useContext(QuestionContext);
   const { answers } = useContext(AnswerContext);
-
   const [sortOrder, setSortOrder] = useState("newest");
-
   const [selectedOption, setSelectedOption] = useState("all");
 
   const handleSortOrderChange = (e) => {
@@ -27,7 +25,6 @@ const Questions = () => {
     return true;
   });
 
-  
   let sortedQuestions = [];
   if (filteredQuestions) {
     sortedQuestions = [...filteredQuestions];

@@ -9,8 +9,6 @@ const QuestionProvider = ({ children }) => {
 
   const { loggedInUser } = useContext(UserContext);
 
-  const [showMessageQuestion, setShowMessageQuestion] = useState(false);
-
   useEffect(() => {
     const questionData = async () => {
       const res = await fetch('http://localhost:5000/questions');
@@ -21,13 +19,12 @@ const QuestionProvider = ({ children }) => {
   }, []);
 
   const addNewQuestion = async (newQuestion) => {
-    const res = await fetch('http://localhost:5000/questions', {
+    await fetch('http://localhost:5000/questions', {
       method: 'POST',
       body: JSON.stringify(newQuestion),
       headers: { 'Content-Type': 'application/json' }
     });
-    const uptatedData = await res.json();
-    setQuestions([...questions, uptatedData]);
+    setQuestions([...questions, newQuestion]);
   }
 
   const deleteQuestion = async (id) => {
@@ -45,7 +42,7 @@ const QuestionProvider = ({ children }) => {
     });
     setQuestions(questions.map(question => question.id.toString() === id ? { ...question, ...updatedQuestion } : question));
   }
-
+  
   const handleLikes = async (id) => {
     const updatedQuestion = questions.find(question => question.id === id);
     if (!updatedQuestion.likedBy.includes(loggedInUser.id)) {
@@ -77,9 +74,7 @@ const QuestionProvider = ({ children }) => {
         deleteQuestion,
         updateQuestion,
         handleLikes,
-        handleDislike,
-        showMessageQuestion,
-        setShowMessageQuestion
+        handleDislike
       }}
     >
       {children}

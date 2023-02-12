@@ -29,7 +29,6 @@ const AddAnswer = ({ id }) => {
       .required('This field must be filled.'),
   });
 
-
   return (
     <>
       <Formik
@@ -42,7 +41,6 @@ const AddAnswer = ({ id }) => {
           handleSubmit(values);
         }}
       >
-
         {({ errors, touched, values, setValues }) => (
           <>
             <Form className="addAnswerForm">

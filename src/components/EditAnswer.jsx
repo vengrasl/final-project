@@ -37,15 +37,12 @@ const EditAnswer = () => {
         initialValues={{
           answer: currentAnswer.answer,
         }}
-
         validationSchema={validationSchema}
-
         onSubmit={(values, { resetForm }) => {
           resetForm({ values: '' })
           handleSubmit(values);
         }}
       >
-
         {({ errors, touched, values, setValues }) => (
 
           <Form className="editAnswerForm">

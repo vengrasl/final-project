@@ -11,7 +11,7 @@ const Answer = ({ data }) => {
 
   const answerOwner = users.find(user => user.id === data.userId);
 
-  const { deleteAnswer, handleAnswerLikes, handleAnswerDislike, showMessageAnswer, setShowMessageAnswer } = useContext(AnswerContext)
+  const { deleteAnswer, handleAnswerLikes, handleAnswerDislike} = useContext(AnswerContext)
 
   const answerVote = data.likedBy.length - data.disLikedBy.length;
 
@@ -32,7 +32,7 @@ const Answer = ({ data }) => {
         </div>
         <div className="editMessageAndButtons">
           <div className="editedMessage">
-            {data.wasEdited && <p>Note. This answer was edited</p>}
+            {data.wasEdited && <p className="editedText">Note. This answer was edited</p>}
           </div>
           <div className="buttonDiv">
             {loggedInUser && loggedInUser.id === answerOwner.id &&
@@ -43,23 +43,16 @@ const Answer = ({ data }) => {
             }
           </div>
         </div>
-
         <div className="likeDislikeDiv">
           <img className="thumbsUp"
             src={thumbsUp} alt="thumbsUp"
-            onClick={loggedInUser ?
-              () => handleAnswerLikes(data.id)
-              :
-              () => setShowMessageAnswer(true)} />
+            onClick={() => handleAnswerLikes(data.id)} 
+          />
           <span>{answerVote}</span>
           <img className="thumbsDown"
             src={thumbsDown} alt="dislike"
-            onClick={loggedInUser ?
-              () => handleAnswerDislike(data.id)
-              :
-              () => setShowMessageAnswer(true)} />
+            onClick={() => handleAnswerDislike(data.id)}/>
         </div>
-        {showMessageAnswer && <p className="loginToLike">You need to log in to like/dislike this answer</p>}
       </div>
     </>
   );

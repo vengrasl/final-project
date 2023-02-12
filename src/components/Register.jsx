@@ -49,7 +49,6 @@ const Register = () => {
           avatar: ''
         }}
         validationSchema={validationSchema}
-
         onSubmit={(values, { resetForm }) => {
           resetForm({ values: '' });
           handleSubmit(values);

@@ -1,8 +1,6 @@
 import { useState, useContext } from "react";
 import UserContext from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import QuestionContext from "../context/QuestionContext";
-import AnswerContext from "../context/AnswerContext";
 
 const LogIn = () => {
 
@@ -12,10 +10,6 @@ const LogIn = () => {
   })
 
   const { users, setLoggedInUser } = useContext(UserContext);
-
-  const { setShowMessageQuestion } = useContext(QuestionContext);
-
-  const { setShowMessageAnswer } = useContext(AnswerContext)
 
   const [failedLogIn, setFailedLogIn] = useState(false);
 
@@ -27,8 +21,6 @@ const LogIn = () => {
     if (loggedInUser) {
       setLoggedInUser(loggedInUser)
       navigate('/')
-      setShowMessageQuestion(false)
-      setShowMessageAnswer(false)
     } else {
       setFailedLogIn(true);
     }

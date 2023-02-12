@@ -9,8 +9,6 @@ const AnswerProvider = ({ children }) => {
 
   const { loggedInUser } = useContext(UserContext);
 
-  const [showMessageAnswer, setShowMessageAnswer] = useState(false);
-
   useEffect(() => {
     const questionData = async () => {
       const res = await fetch('http://localhost:5000/answers');
@@ -75,9 +73,7 @@ const AnswerProvider = ({ children }) => {
         deleteAnswer,
         updateAnswer,
         handleAnswerLikes,
-        handleAnswerDislike,
-        showMessageAnswer,
-        setShowMessageAnswer
+        handleAnswerDislike
       }}
     >
       {children}

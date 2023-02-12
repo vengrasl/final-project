@@ -10,8 +10,7 @@ const Header = () => {
 
   return (
     <header>
-      {
-        loggedInUser ?
+      {loggedInUser ?
           <div className="loggedIn">
             <div className="loggedInLinks">
               <Link to="/"><h3>Home</h3></Link>

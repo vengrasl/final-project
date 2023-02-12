@@ -50,8 +50,7 @@ const LogIn = () => {
           </label>
           <input className="loginbtn" type="submit" value="Log In" />
         </form>
-        {
-          failedLogIn && <span>Invalid username or password</span>
+        {failedLogIn && <span>Invalid username or password</span>
         }
       </div>
     </>

@@ -42,7 +42,7 @@ const QuestionProvider = ({ children }) => {
     });
     setQuestions(questions.map(question => question.id.toString() === id ? { ...question, ...updatedQuestion } : question));
   }
-  
+
   const handleLikes = async (id) => {
     const updatedQuestion = questions.find(question => question.id === id);
     if (!updatedQuestion.likedBy.includes(loggedInUser.id)) {

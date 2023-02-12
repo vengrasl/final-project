@@ -11,7 +11,7 @@ const Answer = ({ data }) => {
 
   const answerOwner = users.find(user => user.id === data.userId);
 
-  const { deleteAnswer, handleAnswerLikes, handleAnswerDislike} = useContext(AnswerContext)
+  const { deleteAnswer, handleAnswerLikes, handleAnswerDislike } = useContext(AnswerContext)
 
   const answerVote = data.likedBy.length - data.disLikedBy.length;
 
@@ -46,12 +46,12 @@ const Answer = ({ data }) => {
         <div className="likeDislikeDiv">
           <img className="thumbsUp"
             src={thumbsUp} alt="thumbsUp"
-            onClick={() => handleAnswerLikes(data.id)} 
+            onClick={() => handleAnswerLikes(data.id)}
           />
           <span>{answerVote}</span>
           <img className="thumbsDown"
             src={thumbsDown} alt="dislike"
-            onClick={() => handleAnswerDislike(data.id)}/>
+            onClick={() => handleAnswerDislike(data.id)} />
         </div>
       </div>
     </>

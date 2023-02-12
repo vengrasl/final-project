@@ -23,9 +23,7 @@ const Answers = () => {
 
   return (
     <section className='answers'>
-
-      {
-        currentQuestion &&
+      {currentQuestion &&
         currentQuestion.map(question => (
           <Question
             key={question.id}
@@ -33,10 +31,8 @@ const Answers = () => {
           />
         ))
       }
-
       <h3 className='answersSection'>Answers section</h3>
-      {
-        currentAnswer ?
+      {currentAnswer ?
           currentAnswer.length > 0 ?
             currentAnswer.map(answer =>
               <Answer
@@ -51,9 +47,7 @@ const Answers = () => {
           :
           <img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" alt="loading" />
       }
-
-      {
-        loggedInUser &&
+      {loggedInUser &&
         <AddAnswer
           id={id} />
       }

@@ -66,13 +66,13 @@ const Question = ({ data }) => {
       <div className="likeDislikeDiv">
         <img className="thumbsUp"
           src={thumbsUp} alt="thumbsUp"
-          onClick={() => handleLikes(data.id)} 
-          />
+          onClick={() => handleLikes(data.id)}
+        />
         <span>{QuestionVote}</span>
         <img className="thumbsDown"
           src={thumbsDown} alt="dislike"
-          onClick={() => handleDislike(data.id)} 
-          />
+          onClick={() => handleDislike(data.id)}
+        />
       </div>
     </div>
   );

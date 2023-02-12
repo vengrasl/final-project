@@ -7,49 +7,19 @@
       "avatar": "https://i.pravatar.cc/150?img=11"
     },
     {
-      "username": "lukas1",
+      "username": "tomas",
       "password": "123123123",
-      "avatar": "https://i.pravatar.cc/150?img=11",
-      "id": 1675702740380
-    },
-    {
-      "username": "lukas123",
-      "password": "123123123",
-      "avatar": "https://i.pravatar.cc/150?img=11",
-      "id": 1676192806958
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHoWaHIIN3NRAgi526l-J3ltJoZWVIwCDWrA&usqp=CAU",
+      "id": 1676212586602
     }
   ],
   "questions": [
     {
-      "title": "question nr2",
-      "question": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "title": "First question title",
+      "question": "This is the first question - what time is it?",
       "userId": 1,
-      "id": 1676132630898,
-      "questionPostDate": "2/11/2023, 6:23:50 PM",
-      "wasEdited": true,
-      "likedBy": [
-        1676192806958
-      ],
-      "disLikedBy": [
-        1
-      ]
-    },
-    {
-      "title": "question add",
-      "question": "added question. and edited",
-      "userId": 1676192806958,
-      "id": 1676192828441,
-      "questionPostDate": "2/12/2023, 11:07:08 AM",
-      "wasEdited": true,
-      "likedBy": [],
-      "disLikedBy": []
-    },
-    {
-      "title": "123123",
-      "question": "123123123",
-      "userId": 1,
-      "id": 1676195585269,
-      "questionPostDate": "2/12/2023, 11:53:05 AM",
+      "id": 1676212513997,
+      "questionPostDate": "2/12/2023, 4:35:13 PM",
       "wasEdited": false,
       "likedBy": [],
       "disLikedBy": []
@@ -57,21 +27,11 @@
   ],
   "answers": [
     {
-      "answer": "niceeee",
-      "userId": 1,
-      "id": 1676142100134,
-      "answerPostDate": "2/11/2023, 9:01:40 PM",
-      "questionId": 1676132630898,
-      "wasEdited": false,
-      "likedBy": [],
-      "disLikedBy": []
-    },
-    {
-      "answer": "here is an answer. it was eddited",
-      "userId": 1,
-      "id": 1676192866758,
-      "answerPostDate": "2/12/2023, 11:07:46 AM",
-      "questionId": 1676192828441,
+      "answer": "4:37 PM",
+      "userId": 1676212586602,
+      "id": 1676212609964,
+      "answerPostDate": "2/12/2023, 4:36:49 PM",
+      "questionId": 1676212513997,
       "wasEdited": true,
       "likedBy": [],
       "disLikedBy": []

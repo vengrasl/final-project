@@ -37,7 +37,7 @@ const Questions = () => {
 
   return (
     <>
-    <div className="sort-container">
+      <div className="sort-container">
         <div>
           <label htmlFor="sort-order">Sort by date:</label>
           <select id="sort-order" value={sortOrder} onChange={handleSortOrderChange}>
@@ -46,7 +46,7 @@ const Questions = () => {
           </select>
         </div>
         <div className="selectOption">
-        <label>Sort by answers:</label>
+          <label>Sort by answers:</label>
           <select value={selectedOption} onChange={handleOptionChange}>
             <option value="all">All</option>
             <option value="answered">Answered</option>
@@ -54,23 +54,23 @@ const Questions = () => {
           </select>
         </div>
       </div>
-    <section className="homeQuestions">
-      {
-        filteredQuestions ?
-          filteredQuestions.length > 0 ?
-            sortedQuestions.map(question =>
-              <Question
-                key={question.id}
-                data={question}
-              />
-            ) :
-            <div className="noPosts">
-              <p>There are no questions at this time. Be the first one to Add a question by clicking <Link to='/addQuestion'>HERE</Link> </p>
-            </div>
-          :
-          <img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" alt="loading" />
-      }
-    </section>
+      <section className="homeQuestions">
+        {
+          filteredQuestions ?
+            filteredQuestions.length > 0 ?
+              sortedQuestions.map(question =>
+                <Question
+                  key={question.id}
+                  data={question}
+                />
+              ) :
+              <div className="noPosts">
+                <p>There are no questions at this time. Be the first one to Add a question by clicking <Link to='/addQuestion'>HERE</Link> </p>
+              </div>
+            :
+            <img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" alt="loading" />
+        }
+      </section>
     </>
   );
 }
